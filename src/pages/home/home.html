@@ -8,8 +8,8 @@
     <div class="warning">
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">下雨路滑，请小心驾驶！</div>
-          <div class="swiper-slide">请打开雾灯！</div>
+          <div class="swiper-slide">请小心驾驶！</div>
+          <div class="swiper-slide" *ngFor="let note of notes">{{note.tip}}</div>
         </div>
       </div>
     </div>
@@ -36,6 +36,11 @@
     </div>
     <div class="button5">
       <span>紧急电话</span>
+    </div>
+  </section>
+  <section>
+    <div class="ad">
+      <span>广告位招商！</span>
     </div>
   </section>
 </ion-content>
