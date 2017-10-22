@@ -14,14 +14,26 @@ export class HomePage implements OnInit{
 
   notes = [];
 
+  aaa: boolean = true;
+
   constructor(public navCtrl: NavController,public http: Http) {
     this.dataSource = this.http.get('http://qhnaminal.com/cjjy/index.php/Index/testdata').map(response => response.json());
   }
 
   ngOnInit() {
-    this.dataSource.subscribe(
-      data => this.notes = data
-    )
+
+    setInterval(() => {
+      this.dataSource.subscribe(
+        data => this.notes = data
+      );
+      console.log(`隔三秒拉取一次！`)
+    },3000);
+
+
+  }
+
+  open2() {
+    this.aaa = !this.aaa;
   }
 }
 
