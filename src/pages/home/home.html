@@ -4,12 +4,12 @@
   </section>
 
   <section class="section2">
-    <h5 (click)="open2()">道路提醒:</h5>
+    <h5>道路提醒:</h5>
     <div class="warning">
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">请小心驾驶！</div>
-          <div class="swiper-slide" *ngFor="let note of notes">{{note.rule_priority}}</div>
+          <div class="swiper-slide" *ngFor="let note of notes">{{note.rule_desc}}</div>
           <div class="swiper-slide" *ngIf="aaa">温度***  /  湿度***</div>
         </div>
       </div>

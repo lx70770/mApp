@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage implements OnInit{
+export class HomePage implements OnInit {
 
   dataSource: Observable<any>;
 
@@ -16,7 +16,7 @@ export class HomePage implements OnInit{
 
   aaa: boolean = true;
 
-  constructor(public navCtrl: NavController,public http: Http) {
+  constructor(public navCtrl: NavController, public http: Http) {
     this.dataSource = this.http.get('http://qhnaminal.com/cjjy/index.php/Index/testdata').map(response => response.json());
   }
 
@@ -24,16 +24,22 @@ export class HomePage implements OnInit{
 
     setInterval(() => {
       this.dataSource.subscribe(
-        data => this.notes = data
+        data => {
+
+          if(data.length === 0){
+            console.log(`后台没数据！`);
+            this.aaa = false;
+          }else {
+            console.log(`后台有数据！`);
+            this.notes = data;
+          }
+        }
       );
       console.log(`隔三秒拉取一次！`)
-    },3000);
+    }, 5000);
 
 
   }
 
-  open2() {
-    this.aaa = !this.aaa;
-  }
 }
 
