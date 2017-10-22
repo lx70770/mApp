@@ -15,7 +15,7 @@ export class HomePage implements OnInit{
   notes = [];
 
   constructor(public navCtrl: NavController,public http: Http) {
-    this.dataSource = this.http.get('http://localhost:8080/stock').map(response => response.json());
+    this.dataSource = this.http.get('http://qhnaminal.com/cjjy/index.php/Index/testdata').map(response => response.json());
   }
 
   ngOnInit() {
