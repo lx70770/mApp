@@ -12,12 +12,14 @@ export class HomePage implements OnInit {
 
   dataSource: Observable<any>;
 
-  notes = [];
+  countTimes : Observable<any>;
+
+  notes :number;
 
   aaa: boolean = true;
 
   constructor(public navCtrl: NavController, public http: Http) {
-    this.dataSource = this.http.get('http://qhnaminal.com/cjjy/index.php/Index/testdata').map(response => response.json());
+    this.dataSource = this.http.get('http://qhnaminal.com/cjjy/index.php/Index/add_data').map(response => response.json());
   }
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class HomePage implements OnInit {
         }
       );
       console.log(`隔三秒拉取一次！`)
-    }, 600000);
+    }, 3000);
 
 
   }
