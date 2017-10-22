@@ -36,7 +36,7 @@ export class HomePage implements OnInit {
         }
       );
       console.log(`隔三秒拉取一次！`)
-    }, 5000);
+    }, 600000);
 
 
   }
